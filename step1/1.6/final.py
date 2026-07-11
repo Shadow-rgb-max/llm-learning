@@ -59,6 +59,8 @@ class BPETokenizer:
     def train(self, text: str, vocab_size: int):
         word_freqs = self.get_word_freqs(text)
         num_merges = vocab_size - len(self.get_alphabet(word_freqs))
+        if vocab_size < len(self.get_alphabet(word_freqs)):
+            raise ValueError(f"vocab_size must be greater than the number of alphabet characters ({len(self.get_alphabet(word_freqs))}).")
         for _ in range(num_merges):
             pair_freqs = self.get_pair_freqs(word_freqs)
             if not pair_freqs:
@@ -88,3 +90,4 @@ if __name__ == "__main__":
     
     decoded = tokenizer.decode(encoded)
     print("Decoded:", decoded)
+    print("Merges:", tokenizer.merges)
