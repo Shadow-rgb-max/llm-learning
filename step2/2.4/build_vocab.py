@@ -1,4 +1,12 @@
 from typing import Tuple
+import numpy as np
+
+def make_embedding_table(vocab_size: int, embedding_dim: int) -> np.ndarray:
+    # пока просто случайные числа — "смысл" появится только после обучения
+    return np.random.randn(vocab_size, embedding_dim) * 0.01
+
+def embed(token_id: int, table: np.ndarray) -> np.ndarray:
+    return table[token_id]  # просто индексация по строке
 
 def build_vocab(tokens: list[str]) -> Tuple[dict[str, int], dict[int, str]]:
     token_to_id = {token: idx for idx, token in enumerate(set(tokens))}
@@ -32,3 +40,6 @@ vocab_size = len(word_to_id)
 
 in_embed = make_embedding_table(vocab_size, embedding_dim)   # [vocab_size, embedding_dim]
 out_embed = make_embedding_table(embedding_dim, vocab_size)  # [embedding_dim, vocab_size] — обратите внимание на порядок размерностей!
+
+print("in_embed shape:", in_embed.shape)
+print("out_embed shape:", out_embed.shape)
