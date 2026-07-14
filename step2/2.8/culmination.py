@@ -116,3 +116,4 @@ print("Vector for 'защищал':", protected)
 
 cos_similarity = np.dot(king, protected) / (np.linalg.norm(king) * np.linalg.norm(protected))
 print("Cosine similarity between 'король' and 'защищал':", cos_similarity)
+print('the end')
