@@ -29,8 +29,8 @@ def generate_skipgram_pairs(tokens: list[str], window_size: int) -> list[tuple[s
 def pairs_to_ids(pairs: list[tuple[str, str]], word_to_id: dict[str, int]) -> list[tuple[int, int]]:
     return [(word_to_id[center], word_to_id[context]) for center, context in pairs]
 
-pairs = generate_skipgram_pairs(["мудрый", "король", "правил", "страной"], window_size=2)
-word_to_id, id_to_word = build_vocab(["мудрый", "король", "правил", "страной"])
+pairs = generate_skipgram_pairs(['мудрый', 'король', 'правил', 'страной', 'мудрая', 'королева', 'правила', 'страной', 'храбрый', 'король', 'защищал', 'страну', 'храбрая', 'королева', 'защищала', 'страну'], window_size=2)
+word_to_id, id_to_word = build_vocab(['мудрый', 'король', 'правил', 'страной', 'мудрая', 'королева', 'правила', 'страной', 'храбрый', 'король', 'защищал', 'страну', 'храбрая', 'королева', 'защищала', 'страну'])
 
 id_pairs = pairs_to_ids(pairs, word_to_id)
 print (id_pairs)

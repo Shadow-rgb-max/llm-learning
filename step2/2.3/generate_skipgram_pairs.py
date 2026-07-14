@@ -11,5 +11,5 @@ def generate_skipgram_pairs(tokens: list, window_size: int) -> list:
                 pairs.append((center, tokens[j]))
     return pairs
 
-result = generate_skipgram_pairs(["мудрый", "король", "правил", "страной"], window_size=2)
+result = generate_skipgram_pairs(['мудрый', 'король', 'правил', 'страной', 'мудрая', 'королева', 'правила', 'страной', 'храбрый', 'король', 'защищал', 'страну', 'храбрая', 'королева', 'защищала', 'страну'], window_size=2)
 print(result)  
