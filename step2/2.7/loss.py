@@ -16,5 +16,5 @@ def cross_entropy_loss(probs: np.ndarray, context_id: int) -> float:
     loss = -np.log(predicted_probs[context_id])
     return loss
 
-result = cross_entropy_loss(np.array([0.24991746, 0.25001771, 0.25001222, 0.25005261]), context_id=3)  # пример использования
+result = cross_entropy_loss(np.array([0.24991746, 0.25001771, 0.25001222, 0.25005261]), context_id=2)  # пример использования
 print(result)  # печатаем значение кросс-энтропийной потери
